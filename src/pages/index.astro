@@ -1,5 +1,6 @@
 ---
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 const address = 'likenostalgia.joinserver.ru';
 ---
 <!doctype html>
@@ -26,8 +27,8 @@ const address = 'likenostalgia.joinserver.ru';
         </nav>
         <div class="hero-copy">
           <p class="eyebrow">Minecraft 26.2 · Fabric · RPG SMP</p>
-          <h1>Мир, в который<br />хочется вернуться.</h1>
-          <p class="lead">Likenostalgia — уютный, но живой мир для историй, путешествий, строительства и постепенного RPG-приключения.</p>
+          <h1>Свой дом.<br />Свой путь.</h1>
+          <p class="lead">Likenostalgia — сервер, где можно начать с маленькой базы, а потом уйти в магию, механизмы, ферму, приключения или всё сразу.</p>
           <div class="hero-actions">
             <a class="button primary" href={`${base}download/`}>Скачать клиент <span>→</span></a>
             <a class="button secondary" href={`${base}getting-started/`}>Как начать</a>
@@ -42,21 +43,31 @@ const address = 'likenostalgia.joinserver.ru';
       </section>
 
       <section class="intro section">
-        <p class="kicker">НЕ ПРОСТО СБОРКА</p>
+        <p class="kicker">ЧТО ЕСТЬ В МИРЕ</p>
         <div class="intro-grid">
-          <h2>Здесь важны<br /><em>твои</em> истории.</h2>
+          <h2>Не нужно знать<br />моды <em>заранее.</em></h2>
           <div>
-            <p>Собирай свой путь: спокойная база у воды, механический цех Create, ферма, экспедиция за горизонт или класс, который подходит именно твоему стилю.</p>
-            <p>Клиент уже собран и настроен — остаётся выбрать направление.</p>
+            <p>Вики объясняет всё с нуля: как забрать первый приват, поставить метку на карте, включить голос, начать ферму и найти подходящую магию.</p>
+            <p>Сборка уже собрана и настроена. Тебе не нужно вручную искать моды или угадывать их версии.</p>
           </div>
         </div>
       </section>
 
       <section class="features section" aria-label="Возможности мира">
-        <article class="feature feature-wide"><span>01</span><h3>Исследуй<br />живой мир</h3><p>Дальние дороги, разнообразные существа и мир, который постепенно становится опаснее вдали от дома.</p><a href={`${base}wiki/world-and-progress/`}>О мире →</a></article>
-        <article class="feature"><span>02</span><h3>Выбери<br />свой путь</h3><p>RPG-механики, классы и развитие навыков для своего стиля игры.</p><a href={`${base}wiki/rpg-and-classes/`}>RPG и классы →</a></article>
-        <article class="feature"><span>03</span><h3>Построй<br />своё место</h3><p>Create, декоративные возможности и защита того, что ты создал.</p><a href={`${base}wiki/create-and-building/`}>Строительство →</a></article>
-        <article class="feature feature-warm"><span>04</span><h3>Собирайся<br />вместе</h3><p>Встроенный голосовой чат и карта помогают жить в мире вместе, а не рядом.</p><a href={`${base}wiki/map-and-voice/`}>Карта и голос →</a></article>
+        <article class="feature feature-wide"><img src={`${base}images/adventure-party.png`} alt="Группа путешественников в мире Likenostalgia" /><span>01 · ПРИКЛЮЧЕНИЯ</span><h3>Исследуй<br />и развивайся</h3><p>Мир, данжи, существа, навыки и опасность, которая растёт по мере пути от дома.</p><a href={`${base}wiki/world-and-progress/`}>О мире и прогрессе →</a></article>
+        <article class="feature"><span>02 · RPG</span><h3>Магия и<br />боевые роли</h3><p>Лучник, маг, разбойник, воин, паладин и жрец — не «класс навсегда», а набор школ и заклинаний.</p><a href={`${base}wiki/rpg-and-classes/`}>Все школы и заклинания →</a></article>
+        <article class="feature"><span>03 · ДОМ</span><h3>База, механизмы<br />и декор</h3><p>Приват, Create, мебель, окна, крыши, свет, горшки и множество деталей для нормального живого дома.</p><a href={`${base}wiki/create-and-building/`}>Построить базу →</a></article>
+        <article class="feature feature-warm"><span>04 · ФЕРМА И ДРУЗЬЯ</span><h3>Животные,<br />еда и люди</h3><p>Глубокое разведение, фермерство, готовка, карта Xaero и встроенный голосовой чат.</p><a href={`${base}wiki/animals-and-breeding/`}>Фермы и животные →</a></article>
+      </section>
+
+      <section class="systems section">
+        <div><p class="kicker">КАРТА ВОЗМОЖНОСТЕЙ</p><h2>Куда идти<br />после входа.</h2></div>
+        <div class="system-list">
+          <a href={`${base}wiki/claims/`}><b>01</b><span><strong>Защитить место</strong><small>Приват через карту и команды, доступы для друзей.</small></span><i>→</i></a>
+          <a href={`${base}wiki/rpg-and-classes/`}><b>02</b><span><strong>Собрать роль</strong><small>Школы магии, оружие, руны и дерево навыков.</small></span><i>→</i></a>
+          <a href={`${base}wiki/farming-and-food/`}><b>03</b><span><strong>Вырастить хозяйство</strong><small>Новые культуры, блюда, напитки и естественное животноводство.</small></span><i>→</i></a>
+          <a href={`${base}wiki/map-and-voice/`}><b>04</b><span><strong>Найти своих</strong><small>Метки, большая карта, группы и голос рядом.</small></span><i>→</i></a>
+        </div>
       </section>
 
       <section class="play section">
@@ -64,7 +75,7 @@ const address = 'likenostalgia.joinserver.ru';
         <ol class="steps">
           <li><b>01</b><div><strong>Подготовь игру</strong><span>Minecraft 26.2, Fabric Loader 0.19.3 и Java 25.</span></div></li>
           <li><b>02</b><div><strong>Поставь клиент v1.0</strong><span>Распакуй готовый пакет в чистый профиль.</span></div></li>
-          <li><b>03</b><div><strong>Зайди в Likenostalgia</strong><span>Сервер уже добавлен в список Multiplayer.</span></div></li>
+          <li><b>03</b><div><strong>Зайди в Likenostalgia</strong><span>Адрес: likenostalgia.joinserver.ru.</span></div></li>
         </ol>
       </section>
     </main>
@@ -87,8 +98,9 @@ const address = 'likenostalgia.joinserver.ru';
   .hero-copy { padding-top:8.4rem; max-width:min(1120px,calc(100% - 3rem)); } .eyebrow,.kicker { color:var(--gold); font-size:.7rem; letter-spacing:.16em; font-weight:700; } h1,h2,h3 { font-family:Georgia,'Times New Roman',serif; font-weight:400; margin:0; } h1 { font-size:clamp(3.3rem,7vw,6.55rem);line-height:.92; letter-spacing:-.065em; } .lead { max-width:37rem; font-size:1.08rem;line-height:1.7;color:#d7dfd9;margin:1.8rem 0; } .hero-actions { display:flex; gap:.75rem; flex-wrap:wrap; } .button { display:inline-flex; align-items:center; gap:1.3rem; padding:.85rem 1.05rem 0.85rem 1.2rem; border-radius:.18rem; font-weight:700;font-size:.9rem; } .button.primary { background:var(--gold); color:#142224; }.button.primary span{font-size:1.3rem;line-height:0}.button.secondary { border:1px solid rgba(255,255,255,.36); background:rgba(10,20,22,.22);}.button:hover{transform:translateY(-1px);}
   .address { margin-top:3.25rem; padding:.75rem .9rem; background:rgba(10,21,23,.68); border:1px solid rgba(241,222,179,.25); color:var(--ivory); border-radius:.22rem; cursor:pointer; display:flex; align-items:center; gap:.75rem; text-align:left; }.address small{display:block;font-size:.57rem;color:#bbc9c2;letter-spacing:.13em}.address strong{font-size:.92rem}.address b{font-size:.72rem;color:var(--gold);margin-left:.5rem}.signal{width:.55rem;height:.55rem;background:#7bc7a1;border-radius:50%;box-shadow:0 0 12px #7bc7a1}
   .scroll-cue{position:absolute;bottom:1.8rem;left:0;right:0;font-size:.7rem;letter-spacing:.08em;color:#c6d1cc}.scroll-cue span{color:var(--gold);font-size:1.1rem;margin-left:.35rem}.section{padding:7.3rem 0}.intro{background:var(--ink)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}.intro h2,.play h2{font-size:clamp(2.5rem,5vw,4.4rem);line-height:.98;letter-spacing:-.055em}.intro em{color:var(--gold);font-style:italic}.intro p,.play-copy>p:not(.kicker){line-height:1.75;color:var(--muted);font-size:1.03rem}
-  .features{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1rem;padding-top:0}.feature{min-height:19rem;background:linear-gradient(140deg,#173d3a,#102a2d);padding:1.6rem;display:flex;flex-direction:column;align-items:flex-start;border:1px solid rgba(255,255,255,.06)}.feature-wide{grid-row:span 2;min-height:39rem;background:linear-gradient(155deg,#193f3b,#0e2023 65%)}.feature-warm{background:linear-gradient(140deg,#5d4124,#233530)}.feature span{font-size:.68rem;color:var(--gold);letter-spacing:.1em}.feature h3{font-size:2rem;line-height:1.02;margin-top:auto}.feature p{font-size:.9rem;line-height:1.55;color:#d4ddd5;max-width:18rem}.feature a{font-size:.78rem;color:var(--gold);font-weight:700;margin-top:.2rem}
+  .features{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1rem;padding-top:0}.feature{min-height:19rem;background:linear-gradient(140deg,#173d3a,#102a2d);padding:1.6rem;display:flex;flex-direction:column;align-items:flex-start;border:1px solid rgba(255,255,255,.06);overflow:hidden;position:relative}.feature-wide{grid-row:span 2;min-height:39rem;background:#102224}.feature-wide:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,16,18,.95),transparent 68%);pointer-events:none}.feature-wide>*:not(img){position:relative;z-index:1}.feature-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.56}.feature-warm{background:linear-gradient(140deg,#5d4124,#233530)}.feature span{font-size:.68rem;color:var(--gold);letter-spacing:.1em}.feature h3{font-size:2rem;line-height:1.02;margin-top:auto}.feature p{font-size:.9rem;line-height:1.55;color:#d4ddd5;max-width:18rem}.feature a{font-size:.78rem;color:var(--gold);font-weight:700;margin-top:.2rem}
+  .systems{display:grid;grid-template-columns:.85fr 1.15fr;gap:6rem;padding-top:0;padding-bottom:7rem}.systems h2{font-size:clamp(2.5rem,4.5vw,4rem);line-height:.98;letter-spacing:-.055em}.system-list{border-top:1px solid #34494a}.system-list a{display:flex;align-items:center;gap:1rem;padding:1.1rem .25rem;border-bottom:1px solid #34494a}.system-list b{font-size:.7rem;color:var(--gold)}.system-list span{flex:1}.system-list strong,.system-list small{display:block}.system-list strong{font:1.25rem Georgia,serif}.system-list small{color:var(--muted);font-size:.82rem;margin-top:.25rem}.system-list i{font-style:normal;color:var(--gold);font-size:1.2rem}
   .play{display:grid;grid-template-columns:1fr 1fr;gap:7rem;padding-top:8rem;padding-bottom:8rem}.play-copy .button{margin-top:1.3rem}.steps{list-style:none;margin:1.5rem 0 0;padding:0;counter-reset:step}.steps li{display:flex;gap:1.2rem;padding:1.25rem 0;border-top:1px solid #34494a}.steps li:last-child{border-bottom:1px solid #34494a}.steps b{color:var(--gold);font-size:.73rem;letter-spacing:.08em}.steps strong,.steps span{display:block}.steps strong{font-family:Georgia,serif;font-size:1.35rem}.steps span{color:var(--muted);font-size:.87rem;margin-top:.3rem;line-height:1.45}
   footer{padding:2rem 0;display:flex;justify-content:space-between;border-top:1px solid #263b3c;color:#c8d0c9;font-size:.84rem}footer>div{display:flex;gap:1.35rem;align-items:center}
-  @media(max-width:720px){nav,.hero-copy,.scroll-cue,.section,footer{width:min(100% - 2rem,1120px)}.nav-links{gap:.8rem;font-size:.78rem}.hero{min-height:43rem}.hero-copy{padding-top:7.2rem}.intro-grid,.play{grid-template-columns:1fr;gap:2rem}.features{grid-template-columns:1fr}.feature-wide{grid-row:auto;min-height:23rem}.feature{min-height:16rem}.section{padding:4.6rem 0}.play{padding-top:4.6rem;padding-bottom:4.6rem}footer{gap:1.4rem;align-items:flex-start;flex-direction:column}.address b{display:none}.scroll-cue{bottom:1rem}}
+  @media(max-width:720px){nav,.hero-copy,.scroll-cue,.section,footer{width:min(100% - 2rem,1120px)}.nav-links{gap:.8rem;font-size:.78rem}.hero{min-height:43rem}.hero-copy{padding-top:7.2rem}.intro-grid,.play,.systems{grid-template-columns:1fr;gap:2rem}.features{grid-template-columns:1fr}.feature-wide{grid-row:auto;min-height:23rem}.feature{min-height:16rem}.section{padding:4.6rem 0}.play{padding-top:4.6rem;padding-bottom:4.6rem}.systems{padding-top:0;padding-bottom:4.6rem}footer{gap:1.4rem;align-items:flex-start;flex-direction:column}.address b{display:none}.scroll-cue{bottom:1rem}}
 </style>

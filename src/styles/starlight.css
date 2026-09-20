@@ -17,3 +17,6 @@ body { background: #0c1618; }
 .sl-markdown-content :is(h1, h2, h3) { color: #f5f2e9; }
 .card { border-radius: 0.8rem; border-color: rgba(226, 173, 85, .22); background: rgba(23, 36, 38, .75); }
 .site-title { font-family: Georgia, 'Times New Roman', serif; letter-spacing: .03em; }
+.sl-markdown-content .guide-illustration { width: 100%; max-height: 23rem; object-fit: cover; border-radius: 0.8rem; border: 1px solid rgba(226, 173, 85, .24); margin: 0.5rem 0 1.5rem; }
+.sl-markdown-content :is(h2, h3) { scroll-margin-top: 5rem; }
+.sl-markdown-content code { border-color: rgba(226, 173, 85, .2); }
