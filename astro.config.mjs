@@ -49,6 +49,12 @@ export default defineConfig({
           { label: 'FAQ и неполадки', slug: 'faq' },
           { label: 'Изменения', slug: 'changelog' },
         ] },
+        { label: 'Модерация', items: [
+          { label: 'Рабочий регламент', slug: 'staff' },
+          { label: 'Доступ, Auth и роли', slug: 'staff/access-and-roles' },
+          { label: 'Инциденты и Ledger', slug: 'staff/incidents-and-ledger' },
+          { label: 'Мир, приваты и операции', slug: 'staff/world-and-operations' },
+        ] },
       ],
     }),
   ],
