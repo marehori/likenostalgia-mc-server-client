@@ -1,0 +1,94 @@
+---
+const base = import.meta.env.BASE_URL;
+const address = 'likenostalgia.joinserver.ru';
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Likenostalgia — живой RPG SMP на Minecraft Fabric." />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>Likenostalgia — RPG SMP</title>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <img class="hero-art" src={`${base}images/likenostalgia-hero.png`} alt="Ночной фантазийный мир с поселением у реки" />
+        <div class="veil"></div>
+        <nav aria-label="Основная навигация">
+          <a class="brand" href={base}><span class="brand-mark">L</span> Likenostalgia</a>
+          <div class="nav-links">
+            <a href={`${base}download/`}>Скачать</a>
+            <a href={`${base}getting-started/`}>Начать играть</a>
+            <a href={`${base}wiki/world-and-progress/`}>Wiki</a>
+          </div>
+        </nav>
+        <div class="hero-copy">
+          <p class="eyebrow">Minecraft 26.2 · Fabric · RPG SMP</p>
+          <h1>Мир, в который<br />хочется вернуться.</h1>
+          <p class="lead">Likenostalgia — уютный, но живой мир для историй, путешествий, строительства и постепенного RPG-приключения.</p>
+          <div class="hero-actions">
+            <a class="button primary" href={`${base}download/`}>Скачать клиент <span>→</span></a>
+            <a class="button secondary" href={`${base}getting-started/`}>Как начать</a>
+          </div>
+          <button class="address" id="copy-address" data-address={address} aria-label="Скопировать адрес сервера">
+            <span class="signal" aria-hidden="true"></span>
+            <span><small>АДРЕС СЕРВЕРА</small><strong>{address}</strong></span>
+            <b>Копировать</b>
+          </button>
+        </div>
+        <div class="scroll-cue">Листай, чтобы узнать мир <span>↓</span></div>
+      </section>
+
+      <section class="intro section">
+        <p class="kicker">НЕ ПРОСТО СБОРКА</p>
+        <div class="intro-grid">
+          <h2>Здесь важны<br /><em>твои</em> истории.</h2>
+          <div>
+            <p>Собирай свой путь: спокойная база у воды, механический цех Create, ферма, экспедиция за горизонт или класс, который подходит именно твоему стилю.</p>
+            <p>Клиент уже собран и настроен — остаётся выбрать направление.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="features section" aria-label="Возможности мира">
+        <article class="feature feature-wide"><span>01</span><h3>Исследуй<br />живой мир</h3><p>Дальние дороги, разнообразные существа и мир, который постепенно становится опаснее вдали от дома.</p><a href={`${base}wiki/world-and-progress/`}>О мире →</a></article>
+        <article class="feature"><span>02</span><h3>Выбери<br />свой путь</h3><p>RPG-механики, классы и развитие навыков для своего стиля игры.</p><a href={`${base}wiki/rpg-and-classes/`}>RPG и классы →</a></article>
+        <article class="feature"><span>03</span><h3>Построй<br />своё место</h3><p>Create, декоративные возможности и защита того, что ты создал.</p><a href={`${base}wiki/create-and-building/`}>Строительство →</a></article>
+        <article class="feature feature-warm"><span>04</span><h3>Собирайся<br />вместе</h3><p>Встроенный голосовой чат и карта помогают жить в мире вместе, а не рядом.</p><a href={`${base}wiki/map-and-voice/`}>Карта и голос →</a></article>
+      </section>
+
+      <section class="play section">
+        <div class="play-copy"><p class="kicker">ДОРОГА В МИР</p><h2>От загрузки<br />до первого дома.</h2><p>Мы собрали короткую инструкцию без лишних шагов: установить Fabric, распаковать клиент, запустить игру и присоединиться.</p><a class="button primary" href={`${base}getting-started/`}>Открыть инструкцию <span>→</span></a></div>
+        <ol class="steps">
+          <li><b>01</b><div><strong>Подготовь игру</strong><span>Minecraft 26.2, Fabric Loader 0.19.3 и Java 25.</span></div></li>
+          <li><b>02</b><div><strong>Поставь клиент v1.0</strong><span>Распакуй готовый пакет в чистый профиль.</span></div></li>
+          <li><b>03</b><div><strong>Зайди в Likenostalgia</strong><span>Сервер уже добавлен в список Multiplayer.</span></div></li>
+        </ol>
+      </section>
+    </main>
+    <footer><a class="brand" href={base}><span class="brand-mark">L</span> Likenostalgia</a><div><a href={`${base}rules/`}>Правила</a><a href={`${base}faq/`}>Помощь</a><a href="https://github.com/marehori/likenostalgia-mc-server-client">GitHub</a></div></footer>
+    <script>
+      const copy = document.querySelector('#copy-address');
+      copy?.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(copy.dataset.address || '');
+        const label = copy.querySelector('b');
+        if (label) { label.textContent = 'Скопировано'; setTimeout(() => label.textContent = 'Копировать', 1800); }
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :root { --ink:#0c1618; --deep:#102225; --moss:#173d3a; --gold:#e4ad58; --ivory:#f5f1e6; --muted:#adbbb5; font-family: Inter, ui-sans-serif, system-ui, sans-serif; color:var(--ivory); background:var(--ink); }
+  * { box-sizing:border-box; } body { margin:0; } a { color:inherit; text-decoration:none; } .hero { min-height: 47rem; position:relative; isolation:isolate; overflow:hidden; background:#102225; } .hero-art { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:-2; } .veil { position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, rgba(7,17,19,.94) 0%,rgba(9,24,27,.72) 39%,rgba(9,23,25,.18) 77%),linear-gradient(0deg,rgba(7,14,16,.86),transparent 45%); }
+  nav, .hero-copy, .scroll-cue, .section, footer { width:min(1120px, calc(100% - 3rem)); margin:0 auto; } nav { height:5.5rem; display:flex; justify-content:space-between; align-items:center; } .brand { font:600 1.15rem Georgia, serif; letter-spacing:.045em; display:flex; align-items:center; gap:.6rem; } .brand-mark { width:1.8rem;height:1.8rem; display:grid;place-items:center; color:var(--ink); background:var(--gold); clip-path:polygon(50% 0,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%); font-size:.9rem; } .nav-links { display:flex; gap:1.65rem; font-size:.92rem; color:#e3e7e0; } .nav-links a:hover,footer a:hover { color:var(--gold); }
+  .hero-copy { padding-top:8.4rem; max-width:min(1120px,calc(100% - 3rem)); } .eyebrow,.kicker { color:var(--gold); font-size:.7rem; letter-spacing:.16em; font-weight:700; } h1,h2,h3 { font-family:Georgia,'Times New Roman',serif; font-weight:400; margin:0; } h1 { font-size:clamp(3.3rem,7vw,6.55rem);line-height:.92; letter-spacing:-.065em; } .lead { max-width:37rem; font-size:1.08rem;line-height:1.7;color:#d7dfd9;margin:1.8rem 0; } .hero-actions { display:flex; gap:.75rem; flex-wrap:wrap; } .button { display:inline-flex; align-items:center; gap:1.3rem; padding:.85rem 1.05rem 0.85rem 1.2rem; border-radius:.18rem; font-weight:700;font-size:.9rem; } .button.primary { background:var(--gold); color:#142224; }.button.primary span{font-size:1.3rem;line-height:0}.button.secondary { border:1px solid rgba(255,255,255,.36); background:rgba(10,20,22,.22);}.button:hover{transform:translateY(-1px);}
+  .address { margin-top:3.25rem; padding:.75rem .9rem; background:rgba(10,21,23,.68); border:1px solid rgba(241,222,179,.25); color:var(--ivory); border-radius:.22rem; cursor:pointer; display:flex; align-items:center; gap:.75rem; text-align:left; }.address small{display:block;font-size:.57rem;color:#bbc9c2;letter-spacing:.13em}.address strong{font-size:.92rem}.address b{font-size:.72rem;color:var(--gold);margin-left:.5rem}.signal{width:.55rem;height:.55rem;background:#7bc7a1;border-radius:50%;box-shadow:0 0 12px #7bc7a1}
+  .scroll-cue{position:absolute;bottom:1.8rem;left:0;right:0;font-size:.7rem;letter-spacing:.08em;color:#c6d1cc}.scroll-cue span{color:var(--gold);font-size:1.1rem;margin-left:.35rem}.section{padding:7.3rem 0}.intro{background:var(--ink)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}.intro h2,.play h2{font-size:clamp(2.5rem,5vw,4.4rem);line-height:.98;letter-spacing:-.055em}.intro em{color:var(--gold);font-style:italic}.intro p,.play-copy>p:not(.kicker){line-height:1.75;color:var(--muted);font-size:1.03rem}
+  .features{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1rem;padding-top:0}.feature{min-height:19rem;background:linear-gradient(140deg,#173d3a,#102a2d);padding:1.6rem;display:flex;flex-direction:column;align-items:flex-start;border:1px solid rgba(255,255,255,.06)}.feature-wide{grid-row:span 2;min-height:39rem;background:linear-gradient(155deg,#193f3b,#0e2023 65%)}.feature-warm{background:linear-gradient(140deg,#5d4124,#233530)}.feature span{font-size:.68rem;color:var(--gold);letter-spacing:.1em}.feature h3{font-size:2rem;line-height:1.02;margin-top:auto}.feature p{font-size:.9rem;line-height:1.55;color:#d4ddd5;max-width:18rem}.feature a{font-size:.78rem;color:var(--gold);font-weight:700;margin-top:.2rem}
+  .play{display:grid;grid-template-columns:1fr 1fr;gap:7rem;padding-top:8rem;padding-bottom:8rem}.play-copy .button{margin-top:1.3rem}.steps{list-style:none;margin:1.5rem 0 0;padding:0;counter-reset:step}.steps li{display:flex;gap:1.2rem;padding:1.25rem 0;border-top:1px solid #34494a}.steps li:last-child{border-bottom:1px solid #34494a}.steps b{color:var(--gold);font-size:.73rem;letter-spacing:.08em}.steps strong,.steps span{display:block}.steps strong{font-family:Georgia,serif;font-size:1.35rem}.steps span{color:var(--muted);font-size:.87rem;margin-top:.3rem;line-height:1.45}
+  footer{padding:2rem 0;display:flex;justify-content:space-between;border-top:1px solid #263b3c;color:#c8d0c9;font-size:.84rem}footer>div{display:flex;gap:1.35rem;align-items:center}
+  @media(max-width:720px){nav,.hero-copy,.scroll-cue,.section,footer{width:min(100% - 2rem,1120px)}.nav-links{gap:.8rem;font-size:.78rem}.hero{min-height:43rem}.hero-copy{padding-top:7.2rem}.intro-grid,.play{grid-template-columns:1fr;gap:2rem}.features{grid-template-columns:1fr}.feature-wide{grid-row:auto;min-height:23rem}.feature{min-height:16rem}.section{padding:4.6rem 0}.play{padding-top:4.6rem;padding-bottom:4.6rem}footer{gap:1.4rem;align-items:flex-start;flex-direction:column}.address b{display:none}.scroll-cue{bottom:1rem}}
+</style>
